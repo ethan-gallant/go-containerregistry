@@ -16,7 +16,6 @@
 package compression
 
 import (
-	"bufio"
 	"bytes"
 	"io"
 
@@ -80,7 +79,7 @@ func intoPeekReader(r io.Reader) PeekReader {
 		return p
 	}
 
-	return bufio.NewReader(r)
+	return newPeekReader(r)
 }
 
 // CheckHeader checks whether the first bytes from a PeekReader match an expected header
